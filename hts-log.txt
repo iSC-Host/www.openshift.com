@@ -1,0 +1,27 @@
+HTTrack3.48-21+htsswf+htsjava launched on Sun, 14 Jun 2015 16:14:17 at https://www.openshift.com/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "de, en, *" https://www.openshift.com/ -O1 "C:\Users\Suriyaa\Downloads\openshift\openshift" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+16:17:36	Warning: 	Note: due to https://assets.openshift.net remote robots.txt rules, links beginning with these path will be forbidden: /broker/, /app/console/, /app/account/, /app/login (see in the options to disable this)
+16:17:36	Error: 	"Not Found" (404) at link https://assets.openshift.net/app/assets/images/landscape-trees.png (from https://assets.openshift.net/app/assets/site.css)
+16:17:36	Error: 	"Not Found" (404) at link https://assets.openshift.net/app/assets/events-bubble.png (from https://assets.openshift.net/app/assets/site.css)
+16:17:36	Error: 	"Not Found" (404) at link https://assets.openshift.net/app/assets/tiny-panda.png (from https://assets.openshift.net/app/assets/site.css)
+16:17:36	Error: 	"Not Found" (404) at link https://assets.openshift.net/app/assets/related-bottom-bg.png (from https://assets.openshift.net/app/assets/site.css)
+16:17:36	Error: 	"Not Found" (404) at link https://assets.openshift.net/app/assets/related-top-bg.png (from https://assets.openshift.net/app/assets/site.css)
+16:17:49	Error: 	"Error when decompressing" (-1) at link https://www.openshift.com/blogs (from https://www.openshift.com/products)
+16:17:49	Error: 	"Error when decompressing" (-1) at link https://www.openshift.com/developers (from https://www.openshift.com/products)
+16:18:11	Warning: 	Moved Permanently for https://www.openshift.com/get-started/
+16:18:11	Warning: 	File has moved from https://www.openshift.com/get-started/ to https://www.openshift.com/get-started
+16:18:59	Error: 	"Not Found" (404) at link https://www.openshift.com/products/enterprise/gartner (from https://www.openshift.com/awards)
+16:21:46	Error: 	"Not Found" (404) at link https://www.openshift.com/app/img/brand.png (from https://www.openshift.com/app/assets/console-e07e66af04bcb73be2f926305a353597.css)
+16:21:46	Error: 	"Not Found" (404) at link https://www.openshift.com/app/img/icon-user.svg (from https://www.openshift.com/app/assets/console-e07e66af04bcb73be2f926305a353597.css)
+16:21:55	Error: 	"Error when decompressing" (-1) at link https://www.openshift.com/get-started (from https://www.openshift.com/get-started/)
+16:23:53	Error: 	"Not Found" (404) at link https://www.openshift.com/blogs/openshift-developer-spotlight-sébastien-fauvel (from https://www.openshift.com/application-gallery?page=1)
+16:23:53	Error: 	"Not Found" (404) at link https://www.openshift.com/blogs/openshift-developer-spotlight-germán-sánchez-rodelgo (from https://www.openshift.com/application-gallery?page=3)
+
+HTTrack Website Copier/3.48-21 mirror complete in 11 minutes 7 seconds : 938 links scanned, 922 files written (49954432 bytes overall) [45181869 bytes received at 67738 bytes/sec], 10623869 bytes transferred using HTTP compression in 1300 files, ratio 44%, 52.4 requests per connection
+(13 errors, 3 warnings, 0 messages)

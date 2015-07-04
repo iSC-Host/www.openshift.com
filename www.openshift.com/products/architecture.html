@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie6 no-js" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 no-js" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 no-js" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="ie9 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class='no-js' lang='en'>
+  <!--<![endif]-->
+  
+<!-- Mirrored from www.openshift.com/products/architecture by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 14 Jun 2015 14:17:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="../../cdn.optimizely.com/js/487390242.js"></script>
+        <meta charset='utf-8'>
+    <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="architecture.html" />
+<link rel="shortcut icon" href="../sites/all/themes/openshift-theme/favicon.ico" type="image/x-icon" />
+    <title>Understanding OpenShift | OpenShift by Red Hat</title>
+    <meta  name="description" content="How OpenShift works – steps of the application lifecycle, what’s inside your application, and system components.   "> 
+    
+    <link rel="apple-touch-icon-precomposed" href="../../assets.openshift.net/app/assets/touch-icon-precomposed.png">
+    <link rel="icon" href="https://assets.openshift.net/app/assets/favicon.ico">
+    <!--[if IE]><link rel="shortcut icon" href="https://assets.openshift.net/app/assets/favicon.ico"><![endif]-->
+    <!-- or, set /favicon.ico for IE10 win -->    
+    <meta name="msvalidate.01" content="523326BE649B49EB777C11E26245490D"/>
+    <meta name="application-name" content="OpenShift"/>
+    <meta name="msapplication-TileColor" content="#000000"/>
+    <meta name="msapplication-TileImage" content="https://assets.openshift.net/app/assets/touch-icon-precomposed.png"/>
+    <meta name="msapplication-task" content="name=Manage your applications on OpenShift Online;action-uri=https://openshift.redhat.com/app/console;icon-uri=/favicon.ico" />
+    <meta name="msapplication-task" content="name=Latest News from OpenShift;action-uri=https://www.openshift.com/blogs;icon-uri=/favicon.ico" />  
+    <meta name="msapplication-task" content="name=Get help in the OpenShift Dev Center;action-uri=https://www.openshift.com/support;icon-uri=/favicon.ico" />
+    
+
+    
+    <link type="text/css" rel="stylesheet" href="../../assets.openshift.net/app/assets/overpass.css"></link>
+    <script src="../../assets.openshift.net/app/assets/modernizr.min.js" type="text/javascript"></script>
+    <link type="text/css" rel="stylesheet" href="../../assets.openshift.net/app/assets/common.css"></link>
+    <link type="text/css" rel="stylesheet" href="../../assets.openshift.net/app/assets/site.css"></link>
+	  <link type="text/css" rel="stylesheet" media="all" href="../sites/all/modules/vote_up_down/widgets/updown/updowne358.css?t" />
+<link type="text/css" rel="stylesheet" media="all" href="../sites/default/files/css/css_dfd87965c70c20cc91aa3959874b8111.css" />
+    <script type="text/javascript" src="../../assets.openshift.net/app/assets/application.js"></script>
+	  <script type="text/javascript" src="../sites/default/files/js/js_509ed7878d3f0cdaf56785edfa68d54d.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","CToolsModal":{"loadingText":"Loading...","closeText":"Close Window","closeImage":"\u003Cimg src=\"\/sites\/all\/modules\/ctools\/images\/icon-close-window.png\" alt=\"Close window\" title=\"Close window\" width=\"16\" height=\"16\" \/\u003E","throbber":"\u003Cimg src=\"\/sites\/all\/modules\/ctools\/images\/throbber.gif\" alt=\"Loading...\" title=\"Loading\" width=\"32\" height=\"32\" \/\u003E"},"join-modal-box":{"modalSize":{"type":"fixed","width":400,"height":200},"animation":"fadeIn","animationSpeed":"medium"},"fivestar":{"titleUser":"Your rating: ","titleAverage":"Average: ","feedbackSavingVote":"Saving your vote...","feedbackVoteSaved":"Your vote has been saved.","feedbackDeletingVote":"Deleting your vote...","feedbackVoteDeleted":"Your vote has been deleted."}});
+//--><!]]>
+</script>
+    <meta content='' name='author'>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+  </head>
+  <body class='not-front not-logged-in page-node node-type-page no-sidebars community'>
+    <header>
+      <div id="top" class="section-top">
+  <style>
+#outage {
+  display:none;
+}
+.navbar .nav > li > a:hover > span, .navbar .nav > li > a:focus > span {
+  border-bottom: 2px solid #E0E0E0;
+  padding-bottom: 2px;
+}
+</style>  <div class="container">
+    <a title="Track open issues on the OpenShift status page" style="display:none;" id="outage" class="btn btn-small btn-warning" href="https://openshift.redhat.com/app/status">Status</a>
+    <div class="pull-right login">
+      <form action="https://www.openshift.com/search/gcse" method="get" id="search-top">
+         <input name="query" class="search-query" type="text" placeholder="SEARCH">
+         <button type="submit" class="search" value="Search"></button>
+      </form>
+
+      <a class="btn btn-small" href="https://openshift.redhat.com/app/console">Log In</a> <a class="btn btn-small" href="../app/account/new.html">Sign Up</a>     </div>
+    <div>
+      <div class="text">
+        <a href="../blogs.html">Blog</a>
+        <a class="icon-social" href="http://twitter.com/openshift"><span aria-hidden="true" data-icon="&#xee04;" title="Follow us on Twitter"> </span></a><a class="icon-social" href="http://facebook.com/openshift"><span aria-hidden="true" data-icon="&#xee05;" title="Like us on Facebook"> </span></a><a class="icon-social" href="https://plus.google.com/b/108052331678796731786/108052331678796731786/posts"><span aria-hidden="true" data-icon="&#xee06;" title="Visit us on Google+"> </span></a>
+      </div>
+    </div>
+  </div>
+</div>
+            <div id="nav" class="section-nav lift-counter">
+        <div class="navbar">
+          <div class="container">
+            <div class="brand">
+              <a href="../index.html">
+                <div class="brand-image"></div>
+                <div class="brand-text"><strong>Open</strong>Shift</div>
+              </a>
+            </div>
+            <ul class="nav nav-primary">
+                                    <li class="dropdown dropdown-toggle "><a href="../products.html"><span>Products</span></a>                      <!-- <div class="dropdown-menu dropdown-menu-mega"><ul class="nav nav-list"><li><a href="/products">Overview</a></li><li><a href="/products/online">OpenShift Online</a></li><li><a href="/products/enterprise">OpenShift Enterprise</a></li><li><a href="/products/origin">OpenShift Origin</a></li><li><a href="/walkthrough/how-it-works">How it Works</a></li><li><a href="/products/pricing">Pricing</a></li></ul></div> -->                    </li>
+                                  <li class=""><a href="pricing.html"><span>Pricing</span></a>                                          </li>
+                                  <li class=""><a href="../developers.html"><span>Developers</span></a>                                          </li>
+                                  <li class=""><a href="https://hub.openshift.com/"><span>Explore</span></a>                                          </li>
+                                  <li class=""><a href="https://help.openshift.com/"><span>Support</span></a>                                          </li>
+                          </ul>
+          </div>
+        </div>
+
+              </div>
+    </header>
+
+    <div id="content" class="section-striped">
+      <div class="container"><div class="row-content">
+      <div class='row row-flush-right'>
+        
+        
+                  <div class="column-content column-content-page lift grid-wrapper">
+            <div class="span12 span-flush-right">
+        
+                                
+                          <h1>Understanding OpenShift</h1>
+            
+                            
+                        
+  
+  <style>
+    .box {
+      border: 4px solid #666;
+      border-radius: 2px;
+      padding: 8px !important;
+      display: inline-block;
+    }
+    .box-interface {
+      border-radius: 0;
+      background-color: #ddd;
+    }
+    .box-store {
+    }
+    ul.inline > li {
+     display: inline-block;
+    }
+    .box-section {
+      display: block;
+      margin: -8px !important;
+      padding: 4px 8px;
+      line-height: 25px;
+      border-color: #666;
+      border-style: solid;
+      border-radius: 0;
+    }
+    
+    .box-green {
+      background-color: lightgreen;
+    }
+    
+    .box-interface.box-section {
+      background-color: #ddd;
+    }
+    .box-section-top {
+      margin-bottom: 8px !important;
+      border-width: 0 0 4px 0;
+    }
+    .box-section-bottom {
+      margin-top: 8px !important;
+      border-width: 4px 0 0 0;
+    }
+    
+    .box-section-middle {
+      margin-top: 8px !important;
+      border-width: 4px 0 0 0;
+    }
+    
+    .box-section-row {
+      display: table;
+      width: 100%
+    }
+    .box-section-row > * {
+      display: table-cell;
+      text-align: center;
+    }
+    
+    .transition-above  {
+      border: 4px dotted #666;
+      border-bottom: 0;
+      border-left: 0;
+      border-right: 0;
+    }
+    .transition-below  {
+      border: 4px dotted #666;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+    }
+    
+    .diagram-layers ul.unstyled {
+      list-style-type: none;
+      margin-left: 0;
+    }
+    .diagram-layers ul.inline > li {
+      margin-right: 0.75em;
+      //line-height: 30px; 
+      display: inline-block;
+    }
+    .diagram-layers ul.inline > li:last-child {
+      margin-right: 0; 
+    }
+    
+    .layer-info {
+      font-style: italic;
+      line-height: 40px;
+    }
+    
+    ul.diagram-layers {
+      line-height: 25px;
+      font-size: 15.5px;
+    }
+    
+    ul.diagram-layers > li {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    
+    ul.diagram-layers > li.active {
+      //background-color: #f2f2f2;
+    }
+    
+    .active.box-active,
+    .active .box-active,
+    .active .box-section,
+    .diagram-layers .active .box {
+      border-color: black;
+      color: white;
+      background-color: #ea0011;
+      font-weight: bold;
+    }
+    
+    
+    ul.diagram-layers > li > ul {
+      text-align: center;
+    }
+    
+    .tier { cursor: default; }
+    .tier:hover h4:after{ content: "«"; margin-left: 5px; color: #EA0011; }
+    
+    .box-application {
+      position: relative;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      display: inline-block;
+    }
+    .box-cartridge {
+      position: relative;
+      font-size: 20px;
+      background-color: white;
+    }
+    .box-cartridge > .font-icon {
+      color: #666;
+    }
+    .box-cartridge > label {
+      font-weight: bold;
+      font-size: 20px;
+      display: inline;
+    }
+    
+    .activate {
+      cursor: default;
+    }
+    
+    .activate.box:hover,
+    .activate.box:hover > .box-section,
+    .activate.box-section:hover {
+      background-color: #ea0011 !important;
+      border-color: black !important;
+      color: white !important;
+    }
+    .activate.box:hover > label,
+    .activate.box:hover > .font-icon {
+      color: white !important;
+    }
+    
+    .box-plugin {
+      display: block;
+      whitespace: nowrap;
+      position: relative;
+      top: 16px;
+      height: 0;
+    }
+    .box-application > .box {
+      min-height: 60px;
+      min-width: 170px;
+      vertical-align: top;
+    }
+    ul.gears {
+      display: inline-block;
+      font-size: 18px;
+    }
+    ul.gears > li {
+      vertical-align: top;
+      text-align: center;
+    }
+    ul.gears .font-icon {
+      font-size: 48px;
+      margin-bottom: 10px;
+      transition: transform 2s;
+      -webkit-transition: -webkit-transform 2s;
+      display: block;
+    }
+    ul.gears > li.divide {
+      border-left: 1px dotted gray;
+      height: 70px;
+      padding: 0;
+      vertical-align: middle;
+    }
+    .gear {
+      width: 95px;
+      cursor: default;
+    }
+    .diagram.pull-right {
+      margin-left: 30px;  
+    }
+    .diagram > .divide {
+      margin-top: 20px; 
+      margin-bottom: 30px;
+    }
+    .diagram > .center {
+      position: relative;
+    }
+    .diagram > .center > .caption {
+      position: absolute;
+      bottom: 25px;
+      right: 10px;
+      color: #aaa;
+      font-style: italic;
+    }
+    
+    .active > .gear { color: #ea0011; }
+    .active > .gear > .font-icon { 
+        -webkit-transform: scale(1.2) rotate(360deg);
+        transform: scale(1.2) rotate(360deg); 
+    }
+    .plugin.active { color: #ea0011; }
+    
+    #explanation { min-height: 70px; width: 400px; font-size: 17px; }
+    
+    @media (max-width: 767px) {
+      .diagram.pull-right {
+        float: none;
+        margin: 0;
+      }
+      .gear { width: 60px; }
+      .box-application > .box { min-width: auto; }
+      ul.gears .font-icon { font-size: 36px; }
+      ul.gears { font-size: 14px; }
+      .box-application,
+      .box-cartridge,
+      .box-cartridge > label {
+        font-size: 14px;
+      }
+      #explanation { width: auto; font-size: 14px; }
+    }
+   @media (max-width: 320px) {
+      ul.gears > li { padding: 0; }
+      .gear { width: 58px; }
+      .box-plugin .box { padding: 4px !important; }
+      .diagram > .center > .caption { position: static; }
+    }
+</style>
+<p class="lead">OpenShift is a next-generation cloud application platform that makes it easy to develop, deploy, and scale applications in the cloud – public or private.</p>
+<section>
+  <h2>Application Lifecycle</h2>
+  <div class="row-fluid">
+    <div class="span6">
+      <h3>Code</h3>
+      <p class="larger">Develop your application with the language and tools you want.  As you go, push your changes to your app's built-in <a href="https://developers.openshift.com/en/getting-started-modifying-applications.html">Git source code repository</a>.</p>
+    </div>
+    <div class="span6">
+      <h3>Build</h3>
+      <p class="larger">Any steps you need to turn code into a running application can run in OpenShift.  Whether it's a simple script, a personal <a href="https://developers.openshift.com/en/managing-continuous-integration.html">Jenkins continuous integration server</a>, or even an external build system, you can prepare your code for execution in the cloud.</p>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span6">
+      <h3>Deploy</h3>
+      <p class="larger">Every app is composed of <strong>cartridges</strong> – self-contained bits of the application stack like web servers and databases that simplify server maintenance and configuration.  You choose the <a href="technologies.html">technologies</a> by adding cartridges, and OpenShift will provision those services for you automatically.</p>
+    </div>
+    <div class="span6">
+      <h3>Manage</h3>
+      <p class="larger">With your app running in the cloud you can monitor, debug, and tune on the fly.  Experience a surge in web traffic?  Scale your application automatically or allocate capacity ahead of time.  Need business intelligence?  Engage an <a href="../partners.html">OpenShift partner</a> for a wide range of tools to help you succeed.</p>
+    </div>
+  </div>
+</section>
+<section>
+  <h2>Inside your Application</h2>
+  <div class="pull-right diagram">
+    <div class="center">
+      <div class="box box-application">
+        <h3>http://myapp-mydomain.rhcloud.com</h3>
+        <div class="box box-active cart-jboss cart-jenkins">
+          <div class="box-section box-section-top box-green activate" data-activates=".app-code" data-explain="When you push code changes to your application, a build is created and deployed to all of the web gears in your app.">Your Code</div>
+          Git repository
+        </div>
+        <div class="box box-active cart-mysql activate" data-activates=".app-env" data-explain="Each application has a set of environment variables that are shared across gears.">
+          <div class="box-section box-section-top box-green">Your Variables</div>
+          App Environment
+        </div><ul class="unstyled inline box-plugin"><li>
+            <div class="box box-cartridge activate" data-activates=".cart-jboss" data-explain="JBoss gears serve incoming HTTP requests with the code you push."><span class="font-icon" data-icon=""></span> <label>JBoss</label></div>
+          </li><li>
+            <div class="box box-cartridge activate" data-activates=".cart-mysql" data-explain="MySQL sets environment variables so your application code can easily connect."><span class="font-icon" data-icon=""></span> <label>MySQL</label></div>
+          </li><li>
+            <div class="box box-cartridge activate" data-activates=".cart-jenkins" data-explain="Jenkins detects incoming code pushes, runs your build, and then deploys your code to your web gears."><span class="font-icon" data-icon=""></span> <label>Jenkins</label></div>
+          </li></ul></div>
+    </div>
+    <div class="divide center">
+      <h3>deploys to</h3>
+    </div>
+    <div class="center">
+      <ul class="unstyled inline gears">
+        <li class="cart-jboss app-code app-env activate" data-activates=".any-gear" data-explain="The first web gear includes HAProxy, which distributes requests to the other web gears in your app.">
+          <div class="gear">
+            <span class="font-icon" data-icon=""></span>
+            JBoss 1
+            <div>+</div>
+            <div class="plugin">HAProxy</div>
+            <div class="plugin cart-jenkins">Jenkins</div>
+          </div>
+        </li>
+        <li class="divide"></li>
+        <li class="cart-jboss app-code app-env activate" data-activates=".any-gear" data-explain="Your second JBoss gear handles HTTP traffic.">
+          <div class="gear">
+            <span class="font-icon" data-icon=""></span>
+            JBoss 2
+          </div>
+        </li>
+        <li class="divide"></li>
+        <li class="cart-mysql app-env activate" data-activates=".any-gear" data-explain="MySQL runs on its own gear and exposes environment variables back to your web gears.">
+          <div class="gear">
+            <span class="font-icon" data-icon=""></span>
+            MySQL
+          </div>
+        </li>
+        <li class="divide"></li>
+        <li class="cart-jenkins app-env activate" data-activates=".any-gear" data-explain="Your Jenkins server is shared across all of your applications and manages your builds and build artifacts.">
+          <div class="gear">
+            <span class="font-icon" data-icon=""></span>
+            Jenkins Server
+          </div>
+        </li>
+      </ul>
+      <div class="caption">Spread by default across multiple servers</div>
+    </div>
+    <p id="explanation"></p>
+  </div>
+  <p class="larger">An OpenShift application is code,  plus an environment and shared config, with one or more <strong>cartridges</strong>  providing the languages and services your app needs..</p>
+  <p class="larger">Cartridges are deployed to one or more secure containers for your code known as <strong>gears</strong>.  Web and database cartridges get their own gears, while cartridges for logging and monitoring will have access to all gears.</p>
+  <p class="larger">A single server may have multiple gears running at the same time, each isolated from each other through Linux namespacing and SELinux protection.  Each gear is given a fair allocation of CPU, memory, disk, and network bandwidth using Linux <a href="http://en.wikipedia.org/wiki/Cgroups">control groups</a>.</p>
+  <p class="larger">When you add a cartridge to your app, OpenShift chooses where to deploy the cartridge based on the type and needs of the cartridge.  Your app is wired together across multiple gears - you reference the services those cartridges expose via environment variables.</p>
+</section>
+<div class="clearfix"></div>
+<section>
+  <h2>System Components</h2>
+  <p class="larger">An installation of OpenShift – whether it's our hosted <a href="online.html">OpenShift Online</a> service, <a href="enterprise.html">OpenShift Enterprise</a> running in your datacenter, or <a href="origin.html">OpenShift Origin</a> running on your laptop – is composed of</p>
+  <div class="row-fluid">
+    <div class="span7">
+      <ul class="diagram-layers unstyled">
+        <li class="transition-below">
+          <div class="layer-info">Application Traffic (HTTP, SSH, Git)</div>
+        </li>
+        <li id="nodes">
+          <ul class="unstyled inline">
+            <li class="box">Node 1</li>
+            <li class="box">Node 2</li>
+            <li class="box">Node 3</li>
+            <li>...</li>
+            <li class="box">Node N</li>
+          </ul>
+        </li>
+        <li id="messagebus">
+          <div class="box box-interface">Message Bus</div>
+        </li>
+        <li id="broker">
+          <ul class="unstyled inline">
+            <li class="box">
+              Broker 1
+              <span class="box-section box-section-bottom box-interface">REST API</span>
+            </li>
+            <li>...</li>
+            <li class="box">
+              Broker N
+              <span class="box-section box-section-bottom box-interface">REST API</span>
+            </li>
+            <li class="arrow">&lt;=&gt;</li>
+            <li class="box box-store">MongoDB</li>
+          </ul>
+        </li>
+        <li class="transition-above">
+          <div class="layer-info">Management HTTP Traffic</div>
+        </li>
+      </ul>
+    </div>
+    <div class="span5">
+      <div style="margin-top: 70px;"></div>
+      <div class="tier activate" data-activates="#nodes">
+        <h4>nodes</h4>
+        <p class="larger">which hold the gears that run applications, and</p>
+      </div>
+      <div class="tier activate" data-activates="#broker">
+        <h4>a broker</h4>
+        <p class="larger">which manages the nodes and coordinates provisioning and app management, and</p>
+      </div>
+      <div class="tier activate" data-activates="#messagebus">
+        <h4>a message bus</h4>
+        <p class="larger">to link the two together</p>
+      </div>
+    </div>
+  </div>
+  <p class="larger">Client applications like RHC and the web console interact with the broker via our REST API to manage applications, while developers directly push code to their gears in the nodes.</p>
+</section>
+<section>
+  <h3>Flexible Capacity</h3>
+  <p class="larger">Administrators can flexibly add and remove capacity for apps at the node level - bringing on new hardware (physical or virtual) to deal with increased demand.  Multiple applications coexist on each node to maximize utilization and efficiency.  In addition, inactive or rarely visited applications can be idled to preserve capacity and brought back in seconds to allow you to overcommit resources as needed.</p>
+  <h3>Open and Extensible</h3>
+  <p class="larger">Developers and solution architects can easily introduce new technologies, frameworks, services, and integrations to OpenShift via our public Cartridge API and the open source OpenShift Origin project.</p>
+  <h3>Resilient to Failure</h3>
+  <p class="larger">OpenShift is designed to keep applications available to visitors despite outages in the physical infrastructure or management layers. All persistent state is kept in a fast and reliable MongoDB cluster. For more information about running a highly available OpenShift deployment, get in touch with our reference architecture team.</p>
+  <p>
+    <a class="action-more" href="http://openshift.github.io/documentation/oo_system_architecture_guide.html">Read more about the OpenShift platform</a>
+  </p>
+</section>
+
+<script>
+      $('.activate').hover(function() {
+        $('#explanation').text($(this).attr('data-explain'));
+        $($(this).attr('data-activates')).toggleClass('active');
+      },
+      function() {
+        $('#explanation').text('');
+        $($(this).attr('data-activates')).toggleClass('active');
+      });
+  </script>
+  <!-- 
+   -->
+
+  
+              <div class="view view-social-sharing-buttons view-id-social_sharing_buttons view-display-id-block_1 view-dom-id-1">
+    
+  
+  
+      <div class="view-content">
+       <div class="views-field-phpcode"><span class="field-content"><div class="social-sharing"><a target="_blank" href="http://twitter.com/intent/tweet?text=Understanding+OpenShift+https%3A%2F%2Fwww.openshift.com%2Fproducts%2Farchitecture+by+%40openshift" aria-hidden="true" data-icon="&#xee04;" title="Post to Twitter"> </a><a target="_blank" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.openshift.com%2Fproducts%2Farchitecture&amp;t=Understanding+OpenShift" aria-hidden="true" data-icon="&#xee05;" title="Post to Facebook"> </a><a target="_blank" href="https://plus.google.com/share?url=https%3A%2F%2Fwww.openshift.com%2Fproducts%2Farchitecture" aria-hidden="true" data-icon="&#xee06;" title="Post to Google+"> </a></div></span></div>    </div>
+  
+  
+  
+  
+  
+  
+</div> 
+                     </div>
+
+          </div>
+        </div>
+      </div>
+      </div></div>
+    </div>
+
+    <footer>
+      <div id="footer-nav">
+        <div class="container">
+                    <div class="row-fluid"><nav class="span3"><header><h3>Product</h3></header><ul class="unstyled"><li><a href="../awards.html">Awards</a></li><li><a href="../customers.html">Customers</a></li><li><a href="enterprise.html">Enterprise</a></li><li><a href="https://hub.openshift.com/">OpenShift Hub</a></li><li><a href="pricing.html">Plans &amp; Pricing</a></li><li><a href="../resource-grants.html">Resource Grants</a></li><li><a href="../startup.html">Startup Program</a></li><li><a href="technologies.html">Technologies</a></li></ul></nav><nav class="span3"><header><h3>Support</h3></header><ul class="unstyled"><li><a href="https://developers.openshift.com/">Developer Portal</a></li><li><a href="https://access.redhat.com/documentation/en-US/OpenShift_Online/">Documentation</a></li><li><a href="enterprise/try-enterprise.html">Enterprise Sales Info</a></li><li><a href="https://developers.openshift.com/en/getting-started-overview.html">Getting Started</a></li><li><a href="https://help.openshift.com/">Help Center</a></li><li><a href="https://openshift.redhat.com/app/status">System Status</a></li><li><a href="https://openshift.uservoice.com/">Vote on Features</a></li><li><a href="https://help.openshift.com/hc/en-us/requests/new">Contact Us</a></li></ul></nav><nav class="span3"><header><h3>Connect</h3></header><ul class="unstyled"><li><a href="../application-gallery.html">App Gallery</a></li><li><a href="https://blog.openshift.com/">Blog</a></li><li><a href="https://blog.openshift.com/category/events/">Events</a></li><li><a href="https://www.facebook.com/openshift">Facebook</a></li><li><a href="https://plus.google.com/+OpenShift">Google+</a></li><li><a href="https://twitter.com/openshift">Twitter</a></li><li><a href="http://openshift.us3.list-manage.com/subscribe?u=979c70339150d05eec1531104&amp;id=c528e5e48e">Updates by Email</a></li><li><a href="https://www.youtube.com/rhopenshift">YouTube</a></li></ul></nav><nav class="span3"><header><h3>About</h3></header><ul class="unstyled"><li><a href="https://www.redhat.com/about/">About Red Hat</a></li><li><a href="http://jobs.redhat.com/job-search-results/?keywords=openshift">Careers</a></li><li><a href="origin.html">Open Source</a></li><li><a href="../partners.html">Partner Program</a></li><li><a href="../legal/openshift_privacy.html">Privacy Policy</a></li><li><a href="../legal/services_agreement.html">Terms of Service</a></li><li><a href="../policy/security.html">Security Policy</a></li><li><a href="../products.html">What is OpenShift?</a></li></ul></nav></div>        </div>
+      </div>
+      <section id="copyright">
+        <div class="container">
+          <a href="https://www.redhat.com/">
+            <img src="https://assets.openshift.net/app/assets/redhat.svg" alt="Red Hat">
+          </a>
+          <div class="pull-right">Copyright &copy; 2014 Red Hat, Inc.</div>
+        </div>
+      </section>
+    </footer>
+        	<!-- Begin Eloqua Tracking -->
+    	<script type='text/javascript' src='../../www.redhat.com/j/elqNow/elqCfg.js'></script> 
+    	<script type='text/javascript' src='../../www.redhat.com/j/elqNow/elqImg.js'></script>
+    	<!-- End Eloqua Tracking -->
+    	<!-- Begin Google Analytics Tracking -->
+    	<script type="text/javascript" src="../../assets.openshift.net/app/assets/site/tracking.js"></script>
+    	<!-- End Google Analytics Tracking -->
+        <!-- SiteCatalyst code version: H.23.3.
+        Copyright 1996-2011 Adobe, Inc. All Rights Reserved
+        More info available at http://www.omniture.com -->
+        <div id="oTags">
+        <script type="text/javascript" src="../../assets.openshift.net/app/assets/site/s_code.js"></script>
+        <script language="JavaScript" type="text/javascript"><!--
+        /* You may give each page an identifying name, server, and channel on
+        the next lines. */
+        s.pageName="openshift | community | Understanding OpenShift | OpenShift by Red Hat"
+        s.server=""
+        s.channel=""
+        s.heir1=""
+        s.pageType=""
+        s.prop1=""
+        s.prop2=""
+        s.prop3=""
+        s.prop4=""
+        s.prop5=""
+        /* Conversion Variables */
+        s.campaign=""
+        s.state=""
+        s.zip=""
+        s.events=""
+        s.products=""
+        s.purchaseID=""
+        s.eVar1=""
+        s.eVar2=""
+        s.eVar3=""
+        s.eVar4=""
+        s.eVar5=""
+        s.eVar51=""
+        s.eVar27=""
+        s.eVar28=""
+        s.eVar29=""
+        /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+        var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+        <script language="JavaScript" type="text/javascript"><!--
+        if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+        //--></script><noscript><img src="http://redhat.122.2o7.net/b/ss/redhatopenshift/1/H.23.3--NS/0"
+        height="1" width="1" border="0" alt="" /></noscript><!--/DO NOT REMOVE/-->
+        <!-- End SiteCatalyst code version: H.23.3. -->
+        </div>
+    	
+    	<!-- Google Code for Remarketing tag -->
+    	<script type="text/javascript">
+    	/* <![CDATA[ */
+    	var google_conversion_id = 1007064360;
+    	var google_conversion_label = "amNWCJipqAQQqKqa4AM";
+    	var google_custom_params = window.google_tag_params;
+    	var google_remarketing_only = true;
+    	/* ]]> */
+    	</script>
+    	<script type="text/javascript" src="../../www.googleadservices.com/pagead/f.txt">
+    	</script>
+    	<noscript>
+    	<div style="display:inline;">
+    	<img height="1" width="1" style="border-style:none;" alt="" src="http://googleads.g.doubleclick.net/pagead/viewthroughconversion/1007064360/?value=0&amp;label=amNWCJipqAQQqKqa4AM&amp;guid=ON&amp;script=0"/>
+    	</div>
+    	</noscript>
+    	<div style="display:none;">     <script src="../../openshift.redhat.com/app/status/status2f3b.js?id=outage" type="text/javascript"></script>
+    </div>
+  </body>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+if (Drupal.jsEnabled) {
+      $(document).ready(function() {
+        $('a.external').each(function() {
+          $(this).append('&nbsp;<img src="/sites/all/modules/mediawiki_filter/external.png" alt="external"/>');
+        });
+      });
+    }
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"CToolsAJAX":{"scripts":{"\/misc\/jquery.js":true,"\/misc\/drupal.js":true,"\/misc\/jquery.form.js":true,"\/sites\/all\/modules\/ajax_poll\/ajax_poll.js":true,"\/sites\/all\/modules\/ctools\/js\/ajax-responder.js":true,"\/sites\/all\/modules\/ctools\/js\/modal.js":true,"\/sites\/all\/modules\/fivestar\/js\/fivestar.js":true,"\/sites\/all\/modules\/mediawiki_filter\/mediawiki_filter.js":true,"\/sites\/all\/modules\/og\/og.js":true},"css":{"\/modules\/book\/book.css":true,"\/modules\/calendar\/calendar_multiday\/calendar_multiday.css":true,"\/modules\/cck\/theme\/content-module.css":true,"\/modules\/date\/date.css":true,"\/modules\/date\/date_popup\/themes\/datepicker.css":true,"\/modules\/date\/date_popup\/themes\/jquery.timeentry.css":true,"\/modules\/node\/node.css":true,"\/modules\/poll\/poll.css":true,"\/modules\/system\/defaults.css":true,"\/modules\/system\/system.css":true,"\/modules\/system\/system-menus.css":true,"\/modules\/user\/user.css":true,"\/sites\/all\/modules\/ctools\/css\/ctools.css":true,"\/sites\/all\/modules\/ctools\/css\/modal.css":true,"\/sites\/all\/modules\/filefield\/filefield.css":true,"\/sites\/all\/modules\/fivestar\/css\/fivestar.css":true,"\/sites\/all\/modules\/geshifilter\/geshifilter.css":true,"\/sites\/all\/modules\/mediawiki_filter\/mediawiki_filter.css":true,"\/sites\/all\/modules\/og\/theme\/og.css":true,"\/modules\/cck\/modules\/fieldgroup\/fieldgroup.css":true,"\/modules\/views\/css\/views.css":true}}});
+//--><!]]>
+</script>
+</script>
+
+<!-- Mirrored from www.openshift.com/products/architecture by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 14 Jun 2015 14:17:57 GMT -->
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie6 no-js" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 no-js" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 no-js" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="ie9 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class='no-js' lang='en'>
+  <!--<![endif]-->
+  
+<!-- Mirrored from www.openshift.com/walkthrough/developer-workflow by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 14 Jun 2015 14:21:59 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="../../cdn.optimizely.com/js/487390242.js"></script>
+        <meta charset='utf-8'>
+    <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="developer-workflow.html" />
+<link rel="shortcut icon" href="../sites/all/themes/openshift-theme/favicon.ico" type="image/x-icon" />
+    <title>Developer Workflow | OpenShift by Red Hat</title>
+    <meta  name="description" content="Walk through the simple steps to develop, host, and scale your application on OpenShift. It&#039;s easier than you think."> 
+    
+    <link rel="apple-touch-icon-precomposed" href="../../assets.openshift.net/app/assets/touch-icon-precomposed.png">
+    <link rel="icon" href="https://assets.openshift.net/app/assets/favicon.ico">
+    <!--[if IE]><link rel="shortcut icon" href="https://assets.openshift.net/app/assets/favicon.ico"><![endif]-->
+    <!-- or, set /favicon.ico for IE10 win -->    
+    <meta name="msvalidate.01" content="523326BE649B49EB777C11E26245490D"/>
+    <meta name="application-name" content="OpenShift"/>
+    <meta name="msapplication-TileColor" content="#000000"/>
+    <meta name="msapplication-TileImage" content="https://assets.openshift.net/app/assets/touch-icon-precomposed.png"/>
+    <meta name="msapplication-task" content="name=Manage your applications on OpenShift Online;action-uri=https://openshift.redhat.com/app/console;icon-uri=/favicon.ico" />
+    <meta name="msapplication-task" content="name=Latest News from OpenShift;action-uri=https://www.openshift.com/blogs;icon-uri=/favicon.ico" />  
+    <meta name="msapplication-task" content="name=Get help in the OpenShift Dev Center;action-uri=https://www.openshift.com/support;icon-uri=/favicon.ico" />
+    
+
+    
+    <link type="text/css" rel="stylesheet" href="../../assets.openshift.net/app/assets/overpass.css"></link>
+    <script src="../../assets.openshift.net/app/assets/modernizr.min.js" type="text/javascript"></script>
+    <link type="text/css" rel="stylesheet" href="../../assets.openshift.net/app/assets/common.css"></link>
+    <link type="text/css" rel="stylesheet" href="../../assets.openshift.net/app/assets/site.css"></link>
+	  <link type="text/css" rel="stylesheet" media="all" href="../sites/all/modules/vote_up_down/widgets/updown/updowne358.css?t" />
+<link type="text/css" rel="stylesheet" media="all" href="../sites/default/files/css/css_dfd87965c70c20cc91aa3959874b8111.css" />
+    <script type="text/javascript" src="../../assets.openshift.net/app/assets/application.js"></script>
+	  <script type="text/javascript" src="../sites/default/files/js/js_509ed7878d3f0cdaf56785edfa68d54d.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","CToolsModal":{"loadingText":"Loading...","closeText":"Close Window","closeImage":"\u003Cimg src=\"\/sites\/all\/modules\/ctools\/images\/icon-close-window.png\" alt=\"Close window\" title=\"Close window\" width=\"16\" height=\"16\" \/\u003E","throbber":"\u003Cimg src=\"\/sites\/all\/modules\/ctools\/images\/throbber.gif\" alt=\"Loading...\" title=\"Loading\" width=\"32\" height=\"32\" \/\u003E"},"join-modal-box":{"modalSize":{"type":"fixed","width":400,"height":200},"animation":"fadeIn","animationSpeed":"medium"},"fivestar":{"titleUser":"Your rating: ","titleAverage":"Average: ","feedbackSavingVote":"Saving your vote...","feedbackVoteSaved":"Your vote has been saved.","feedbackDeletingVote":"Deleting your vote...","feedbackVoteDeleted":"Your vote has been deleted."}});
+//--><!]]>
+</script>
+    <meta content='' name='author'>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+  </head>
+  <body class='not-front not-logged-in page-walkthrough no-sidebars home2 community'>
+
+<link href="../../assets.openshift.net/app/assets/infographic.css" rel="stylesheet" type="text/css"></link>
+<script src="../../assets.openshift.net/app/assets/site/infographic.js" type="text/javascript"></script>
+
+<header>
+  <div id="top" class="section-top">
+  <style>
+#outage {
+  display:none;
+}
+.navbar .nav > li > a:hover > span, .navbar .nav > li > a:focus > span {
+  border-bottom: 2px solid #E0E0E0;
+  padding-bottom: 2px;
+}
+</style>  <div class="container">
+    <a title="Track open issues on the OpenShift status page" style="display:none;" id="outage" class="btn btn-small btn-warning" href="https://openshift.redhat.com/app/status">Status</a>
+    <div class="pull-right login">
+      <form action="https://www.openshift.com/search/gcse" method="get" id="search-top">
+         <input name="query" class="search-query" type="text" placeholder="SEARCH">
+         <button type="submit" class="search" value="Search"></button>
+      </form>
+
+      <a class="btn btn-small" href="https://openshift.redhat.com/app/console">Log In</a> <a class="btn btn-small" href="../app/account/new.html">Sign Up</a>     </div>
+    <div>
+      <div class="text">
+        <a href="../blogs.html">Blog</a>
+        <a class="icon-social" href="http://twitter.com/openshift"><span aria-hidden="true" data-icon="&#xee04;" title="Follow us on Twitter"> </span></a><a class="icon-social" href="http://facebook.com/openshift"><span aria-hidden="true" data-icon="&#xee05;" title="Like us on Facebook"> </span></a><a class="icon-social" href="https://plus.google.com/b/108052331678796731786/108052331678796731786/posts"><span aria-hidden="true" data-icon="&#xee06;" title="Visit us on Google+"> </span></a>
+      </div>
+    </div>
+  </div>
+</div>
+        <div id="nav" class="section-nav lift-counter">
+        <div class="navbar">
+          <div class="container">
+            <div class="brand">
+              <a href="../index.html">
+                <div class="brand-image"></div>
+                <div class="brand-text"><strong>Open</strong>Shift</div>
+              </a>
+            </div>
+            <ul class="nav nav-primary">
+                                    <li class="dropdown dropdown-toggle "><a href="../products.html"><span>Products</span></a>                      <!-- <div class="dropdown-menu dropdown-menu-mega"><ul class="nav nav-list"><li><a href="/products">Overview</a></li><li><a href="/products/online">OpenShift Online</a></li><li><a href="/products/enterprise">OpenShift Enterprise</a></li><li><a href="/products/origin">OpenShift Origin</a></li><li><a href="/walkthrough/how-it-works">How it Works</a></li><li><a href="/products/pricing">Pricing</a></li></ul></div> -->                    </li>
+                                  <li class=""><a href="../products/pricing.html"><span>Pricing</span></a>                                          </li>
+                                  <li class="active"><a href="../developers.html"><span>Developers</span></a>                                          </li>
+                                  <li class=""><a href="https://hub.openshift.com/"><span>Explore</span></a>                                          </li>
+                                  <li class=""><a href="https://help.openshift.com/"><span>Support</span></a>                                          </li>
+                          </ul>
+          </div>
+        </div>
+
+              </div>
+</header>
+
+<div class="">
+  <div class="container">
+    <style type="text/css">
+area {outline: none;}
+</style>
+<div id="content_well"> <!-- CONTENT WELL -->
+	<div id="bg-top">&nbsp;<noscript><h3>JavaScript must be enabled to use the OpenShift interactive guides.</h3></noscript></div>
+	<div id="bg-bottom" class="gradient">&nbsp;</div>
+	<div id="init" style="display: none;"> <!-- INIT SCREEN -->
+		<div class="tophalf">
+			<h1>OpenShift Enterprise Interactive Guides</h1>
+			<p>Many IT organizations are faced with growing business demands and are working to deliver application services faster. With Red Hat's award-winning, private PaaS, OpenShift Enterprise, your organization can do just that—develop apps faster to meet the demands of the business.</p>
+			<p>Explore the two interactive guides below. Choose to learn all about OpenShift by starting with how it works, or jump ahead to find out how OpenShift Enterprise's automation technologies can standardize and streamline your developer workflows.</p>
+		</div>
+		<div class="bottomhalf clearfix">
+			<div class="bucket">
+				<div class="init-icon">
+					<h2>How<br />OpenShift<br />Works</h2>
+					<p>Learn how the OpenShift architecture provides a highly secure and efficient multi-tenant cloud application platform built on a proven stack of open source technologies.</p>
+					<a class="btn" data-choice="how-openshift-works" href="#">Try it Now</a>
+				</div>
+			</div>
+			<div class="bucket">
+				<div class="init-icon workflow">
+					<h2>OpenShift<br />Developer<br />Workflow</h2>
+					<p>Learn how developers can easily use the self-service OpenShift PaaS platform to accelerate their application development workflow.</p>
+					<a class="btn" data-choice="openshift-workflow" href="#">Try it Now</a>
+				</div>
+			</div>
+		</div>
+	</div> <!-- END INIT -->
+	<ul class="topnav">
+		<li>
+			<a href="how-it-works.html" class="how-openshift-works" data-choice="how-openshift-works">How Openshift Works</a>
+		</li>
+		<li>
+			<a href="developer-workflow.html" class="openshift-workflow" data-choice="openshift-workflow">Developer Workflow</a>
+		</li>
+		<li>
+			<a href="#" class="try" data-choice="try">Try Openshift</a>
+		</li>
+	</ul>
+	<div id="how-openshift-works" class="slide clearfix">
+		<div class="leftnav-container">
+			<ul>
+				<li>
+					<a href="#" class="leftnav" data-section="paas">PaaS</a>
+				</li>
+				<li>
+					<a href="#" class="leftnav" data-section="rhel">RHEL</a>
+				</li>
+				<li>
+					<a href="#" class="leftnav" data-section="infrastructure">Infrastructure</a>
+				</li>
+				<li>
+					<a href="#" class="leftnav" data-section="nodes">Nodes</a>
+				</li>
+				<li>
+					<a href="#" class="leftnav" data-section="broker">Broker</a>
+				</li>
+				<li>
+					<a href="#" class="leftnav" data-section="gears">Gears</a>
+				</li>
+				<li>
+					<a href="#" class="leftnav" data-section="selinux">SELinux</a>
+				</li>
+				<li>
+					<a href="#" class="leftnav" data-section="cgroups">cgroups</a>
+				</li>
+				<li>
+					<a href="#" class="leftnav" data-section="high-density">High Density</a>
+				</li>
+				<li>
+					<a class="btn" href="../products/architecture.html">Learn more</a>
+				</li>
+				<li id="workflow-teaser">
+					<p>Next, explore our automated <strong>DEVELOPER WORKFLOW.</strong></p>
+					<a class="btn" href="developer-workflow.html">Try it now</a>
+				</li>
+			</ul>
+		</div>
+		<div class="slide-content">
+			<div class="instructional">Roll over the graphic, or click<br />the links to the left, to learn <span>How<br />OpenShift<br />Works</span></div>
+			<a id="os_logo" href="#"></a>
+			<div id="nodes-base"><img src="../../assets.openshift.net/app/assets/infographic/works/nodes-base.png" alt="Openshift node base graphic" /></div>
+			<div class="nodeslayer paas"><img src="../../assets.openshift.net/app/assets/infographic/works/paas.png" alt="Openshift PaaS node layer picture" /></div>
+			<div class="nodeslayer rhel"><img src="../../assets.openshift.net/app/assets/infographic/works/rhel.png" alt="Openshift rhel layer graphic" /></div>
+			<div class="nodeslayer infrastructure"><img src="../../assets.openshift.net/app/assets/infographic/works/infrastructure.png" alt="Openshift infrastructure picture" /></div>
+			<div class="nodeslayer nodes"><img src="../../assets.openshift.net/app/assets/infographic/works/nodes.png" alt="Openshift node layer picture" /></div>
+			<div class="nodeslayer broker"><img src="../../assets.openshift.net/app/assets/infographic/works/broker.png" alt="Openshift broker layer graphic" /><img class="lines" src="../../assets.openshift.net/app/assets/infographic/works/broker-lines.png" alt="Openshift broker lines picture" /></div>
+			<div class="map-holder nodes-base">
+				<img id="nodes-base-im" src="../../assets.openshift.net/app/assets/infographic/works/nodes-base-im.png" usemap="#nodes-base-map" alt="Openshift node base color graphic" />
+				<map id="nodes-base-map" name="nodes-base-map">
+					<area shape="poly" coords="225,116,225,232,791,297,791,40" href="#node" data-section="nodes" />
+					<area shape="poly" coords="71,141,71,210,107,214,107,219,200,229,200,119,107,131,107,137" href="#broker" data-section="broker" />
+					<area shape="poly" coords="71,211,71,218,107,222,107,228,791,323,791,298,107,220,107,215" href="#rhel" data-section="rhel" />
+					<area shape="poly" coords="6,220,6,270,798,439,925,282,925,244,798,344" href="#infrastructure" data-section="infrastructure" />
+				</map>
+				<map id="nodes-base-map980" name="nodes-base-map980">
+					<area shape="poly" coords="173,89,173,179,610,229,610,31" href="#node" data-section="nodes" />
+					<area shape="poly" coords="54,108,54,162,82,165,82,169,154,177,154,91,82,101,82,105" href="#broker" data-section="broker" />
+					<area shape="poly" coords="54,163,54,168,82,170,82,176,610,249,610,231,83,170" href="#rhel" data-section="rhel" />
+					<area shape="poly" coords="3,171,3,209,615,338,713,217,713,187,615,265" href="#infrastructure" data-section="infrastructure" />
+				</map>
+				<map id="nodes-base-map768" name="nodes-base-map768">
+					<area shape="poly" coords="141,72,141,145,495,186,495,24" href="#node" data-section="nodes" />
+					<area shape="poly" coords="44,88,44,131,67,133,67,136,125,143,125,74,67,82,67,85" href="#broker" data-section="broker" />
+					<area shape="poly" coords="44,132,44,137,67,139,67,143,495,202,495,187,68,138" href="#rhel" data-section="rhel" />
+					<area shape="poly" coords="2,138,2,170,499,275,579,176,579,152,498,215" href="#infrastructure" data-section="infrastructure" />
+				</map>
+				<a href="#" id="node-enlarge" data-section="enlarge">Enlarge</a>
+			</div>
+			<div id="zoom-base"><img src="../../assets.openshift.net/app/assets/infographic/works/zoom-base.png" alt="Openshift on Red Hat Enterprise Linux graphic" /></div>
+			<div class="zoomlayer gears"><img src="../../assets.openshift.net/app/assets/infographic/works/gears.png" alt="Openshift gear box picture" /></div>
+			<div class="zoomlayer selinux"><img src="../../assets.openshift.net/app/assets/infographic/works/selinux.png" alt="Openshift using selinux picture" /></div>
+			<div class="zoomlayer cgroups"><img src="../../assets.openshift.net/app/assets/infographic/works/cgroups.png" alt="Openshift using cgroups graphic" /></div>
+			<div class="zoomlayer high-density"><img src="../../assets.openshift.net/app/assets/infographic/works/high-density.png" alt="Openshift high density capabilities image" /></div>
+			<div class="map-holder zoom-base">
+				<img id="zoom-base-im" src="../../assets.openshift.net/app/assets/infographic/works/zoom-base-im.png" usemap="#zoom-base-map" alt="Openshift node base color graphic" />
+				<map id="zoom-base-map" name="zoom-base-map">
+					<area shape="poly" coords="6,63,6,270,208,270,208,36" href="#gears" data-section="gears" />
+					<area shape="poly" coords="209,36,209,270,416,270,416,8" href="#selinux" data-section="selinux" />
+					<area shape="poly" coords="417,8,417,270,592,270,592,123" href="#cgroups" data-section="cgroups" />
+					<area shape="poly" coords="6,271,6,446,209,470,209,271" href="#high-density" data-section="high-density" />
+				</map>
+				<map id="zoom-base-map768" name="zoom-base-map768">
+					<area shape="poly" coords="6,51,6,224,174,224,174,29" href="#gears" data-section="gears" />
+					<area shape="poly" coords="175,28,175,224,347,224,347,6" href="#selinux" data-section="selinux" />
+					<area shape="poly" coords="348,6,348,224,492,220,492,101" href="#cgroups" data-section="cgroups" />
+					<area shape="poly" coords="6,225,6,372,174,390,174,225" href="#high-density" data-section="high-density" />
+				</map>
+			</div>
+		</div>
+	</div>
+	<div id="openshift-workflow" class="slide clearfix">
+		<div class="slide-content single">
+			<div class="instructional workflow">Explore OpenShift's automated<br /><span>Developer Workflow</span></div>
+			<div class="panelnav-container clearfix">
+				<ul class="panelnav clearfix">
+					<li>
+						<a href="#" class="one active" data-section="develop"><span>Develop</span></a>
+					</li>
+					<li>
+						<a href="#" class="two" data-section="configure"><span>Configure</span></a>
+					</li>
+					<li>
+						<a href="#" class="three" data-section="push"><span>Push</span></a>
+					</li>
+					<li>
+						<a href="#" class="four" data-section="build"><span>Build</span></a>
+					</li>
+					<li>
+						<a href="#" class="five" data-section="scale"><span>Scale</span></a>
+					</li>
+					<li>
+						<a class="action-more" href="../products/architecture.html">Learn more</a>
+					</li>
+				</ul>
+			</div>
+			<div class="panels-container">
+				<div class="panels">
+					<div id="workflow-base">
+						<img src="../../assets.openshift.net/app/assets/infographic/workflow/workflow-base.png" alt="Openshift workflow base graphic" />
+						<div class="develop1 develop"><img src="../../assets.openshift.net/app/assets/infographic/workflow/develop-node.png" alt="Openshift developing node picture" /></div>
+						<div class="configure1 configure"><img src="../../assets.openshift.net/app/assets/infographic/workflow/configure-node1.png" alt="Openshift configuring a node graphic" /></div>
+						<div class="configure2"><img src="../../assets.openshift.net/app/assets/infographic/workflow/configure-node2.png" alt="Openshift configure node to use jBoss and MySQL graphic" /></div>
+						<div class="push1 push"><img src="../../assets.openshift.net/app/assets/infographic/workflow/push-node.png" alt="Openshift pushing code to git repo graphic" /></div>
+						<div class="build1 build"><img src="../../assets.openshift.net/app/assets/infographic/workflow/build-node1.png" alt="Openshift building a node graphic" /></div>
+						<div class="build2"><img src="../../assets.openshift.net/app/assets/infographic/workflow/build-node2.png" alt="Openshift building a node with Maven and Jenkins picture" /></div>
+						<div class="build3"><img src="../../assets.openshift.net/app/assets/infographic/workflow/build-node3.png" alt="Openshift building a node with Apache picture" /></div>
+					</div>
+					<div class="panel develop">
+						<div class="copy">
+							<h3>Create application.</h3>
+							<p>Use web console, Eclipse IDE, or command-line to create a new application and OpenShift will spin up a gear where that application will run.</p>
+							<a href="#" class="btn step" data-panel="develop">Create application</a>
+							<a href="#" class="btn next" data-panel="develop">Next</a>
+						</div>
+						<div class="app"><img src="../../assets.openshift.net/app/assets/infographic/workflow/develop-app.png" alt="Openshift developing an app graphic" /></div>
+						<div class="person"><img src="../../assets.openshift.net/app/assets/infographic/workflow/person-arrow.png" alt="A person building an openshift app" /></div>
+					</div>
+					<div class="panel configure">
+						<div class="copy">
+							<h3>Configure gear.</h3>
+							<p>When you create your application, you also select from your choice of programming language, database, or other services via OpenShift cartridges. This can include your own favorite technologies via the custom cartridge capability.</p>
+							<a href="#" class="btn step" data-panel="configure">Install cartridges</a>
+							<a href="#" class="btn next" data-panel="configure">Next</a>
+						</div>
+						<div class="app1"><img src="../../assets.openshift.net/app/assets/infographic/workflow/configure-app1.png" alt="Openshift configuring an app with Java, PHP, Python, Ruby, Postgres, and Custom" /></div>
+						<div class="app2"><img src="../../assets.openshift.net/app/assets/infographic/workflow/configure-app2.png" alt="Configuring MySQL and jBoss on Openshift" /></div>
+						<div class="person"><img src="../../assets.openshift.net/app/assets/infographic/workflow/person-arrow.png" alt="A person building an openshift app" /></div>
+					</div>
+					<div class="panel push">
+						<div class="copy">
+							<h3>Code and push.</h3>
+							<p>OpenShift uses git for managing code inside of the platform. Simply perform a "git push" to deploy your code to your application.</p>
+							<a href="#" class="btn step" data-panel="push">Deploy code</a>
+							<a href="#" class="btn next" data-panel="push">Next</a>
+						</div>
+						<div class="app"><img src="../../assets.openshift.net/app/assets/infographic/workflow/push-app.png" alt="Openshift pusing an app graphic" /></div>
+						<div class="person">
+							<img src="../../assets.openshift.net/app/assets/infographic/workflow/person-arrow.png" alt="A person building an openshift app" />
+							<span class="git">git / ssh</span>
+						</div>
+					</div>
+					<div class="panel build">
+						<div class="copy">
+							<h3>Build, test, publish. Automatically.</h3>
+							<p>OpenShift automates the process with other tools such as Maven (Java builds), Jenkins (CI), and Apache (HTTP).</p>
+							<a href="#" class="btn step" data-panel="build">Complete build</a>
+							<a href="#" class="btn next" data-panel="build">Next</a>
+						</div>
+						<div class="app app1"><img src="../../assets.openshift.net/app/assets/infographic/workflow/build-app1.png" alt="Maven on Openshift graphic" /></div>
+						<div class="app app2"><img src="../../assets.openshift.net/app/assets/infographic/workflow/build-app2.png" alt="Jenkins on Openshift picture" /></div>
+						<div class="app app3"><img src="../../assets.openshift.net/app/assets/infographic/workflow/build-app3.png" alt="Using Apache on Openshift graphic" /></div>
+						<div class="person"><img src="../../assets.openshift.net/app/assets/infographic/workflow/person-arrow.png" alt="A person building an openshift app" /></div>
+						<div class="arrow"><img src="../../assets.openshift.net/app/assets/infographic/workflow/app-end-arrow.png" alt="Openshift workflow arrow graphic" /></div>
+						<div class="end"><img src="../../assets.openshift.net/app/assets/infographic/workflow/app-end1.png" alt="Completed Openshift application graphic" /></div>
+					</div>
+					<div class="panel scale">
+						<div class="copy">
+							<h3>OpenShift automates application scaling.</h3>
+							<p>Using an HA-Proxy software load-balancer, OpenShift will horizontally scale the application with increasing load.</p>
+							<a href="#" class="btn step" data-panel="scale">Enable scaling</a>
+							<a href="#" class="btn step2" data-panel="scale">Scale</a>
+							<a href="#" class="btn next" data-panel="scale">Next</a>
+						</div>
+						<div class="person"><img src="../../assets.openshift.net/app/assets/infographic/workflow/person-arrow.png" alt="A person building an openshift app" /></div>
+						<div class="arrow"><img src="../../assets.openshift.net/app/assets/infographic/workflow/app-end-arrow.png" alt="Openshift workflow arrow graphic" /></div>
+						<div class="end"><img class="end1" src="../../assets.openshift.net/app/assets/infographic/workflow/app-end1.png" alt="Completed Openshift application graphic" />
+							<img class="end2" style="display: none;" src="../../assets.openshift.net/app/assets/infographic/workflow/app-end2.png" alt="Completed Openshift applications graphic" />
+							<img class="end3" style="display: none;" src="../../assets.openshift.net/app/assets/infographic/workflow/app-end3.png" alt="Completed scaled Openshift applications graphic" />
+						</div>
+					</div>
+					<div id="scale-base1" class="scalebase scale1">
+						<img src="../../assets.openshift.net/app/assets/infographic/workflow/scale-base1.png" alt="A scalable Openshift node graphic" />
+						<div class="node"><img src="../../assets.openshift.net/app/assets/infographic/workflow/scale-base1-node.png" alt="Openshift scalable node HA-Proxy" /></div>
+					</div>
+					<div id="scale-base2" class="scalebase scale2"><img src="../../assets.openshift.net/app/assets/infographic/workflow/scale-base2.png" alt="Scalable nodes on Openshift picture" /></div>
+					<div id="scale-base3" class="scalebase scale3"><img src="../../assets.openshift.net/app/assets/infographic/workflow/scale-base3.png" alt="Scaling on Opensift with three nodes picture" /></div>
+				</div> <!-- END PANELS -->
+			</div> <!-- END PANELS CONTAINER -->
+		</div>
+	</div> <!-- END OPENSHIFT-WORKFLOW -->
+	<div id="cta">
+		<h4>Learn more about how you can take advantage of this OpenShift architecture:</h4>
+		<h5>OpenShift Online by Red Hat:<br />hosted Public PaaS.</h5>
+		<a href="../app/account/new.html" class="btn" target="_blank">Sign up for free</a>
+		<h5>OpenShift Enterprise by Red Hat:<br />on-premise Private PaaS.</h5>
+		<a href="../products/enterprise/try-enterprise.html" class="btn" target="_blank">Request an evaluation</a>
+	</div>
+	<div id="hovertip" class="left">
+		<p>Lorem ipsum dolor <span>sit anim</span></p>
+		<div class="arrow">&nbsp;</div>
+	</div>
+</div> <!-- END CONTENT WELL -->
+  </div>
+</div>
+    <footer>
+      <div id="footer-nav">
+        <div class="container">
+                    <div class="row-fluid"><nav class="span3"><header><h3>Product</h3></header><ul class="unstyled"><li><a href="../awards.html">Awards</a></li><li><a href="../customers.html">Customers</a></li><li><a href="../products/enterprise.html">Enterprise</a></li><li><a href="https://hub.openshift.com/">OpenShift Hub</a></li><li><a href="../products/pricing.html">Plans &amp; Pricing</a></li><li><a href="../resource-grants.html">Resource Grants</a></li><li><a href="../startup.html">Startup Program</a></li><li><a href="../products/technologies.html">Technologies</a></li></ul></nav><nav class="span3"><header><h3>Support</h3></header><ul class="unstyled"><li><a href="https://developers.openshift.com/">Developer Portal</a></li><li><a href="https://access.redhat.com/documentation/en-US/OpenShift_Online/">Documentation</a></li><li><a href="../products/enterprise/try-enterprise.html">Enterprise Sales Info</a></li><li><a href="https://developers.openshift.com/en/getting-started-overview.html">Getting Started</a></li><li><a href="https://help.openshift.com/">Help Center</a></li><li><a href="https://openshift.redhat.com/app/status">System Status</a></li><li><a href="https://openshift.uservoice.com/">Vote on Features</a></li><li><a href="https://help.openshift.com/hc/en-us/requests/new">Contact Us</a></li></ul></nav><nav class="span3"><header><h3>Connect</h3></header><ul class="unstyled"><li><a href="../application-gallery.html">App Gallery</a></li><li><a href="https://blog.openshift.com/">Blog</a></li><li><a href="https://blog.openshift.com/category/events/">Events</a></li><li><a href="https://www.facebook.com/openshift">Facebook</a></li><li><a href="https://plus.google.com/+OpenShift">Google+</a></li><li><a href="https://twitter.com/openshift">Twitter</a></li><li><a href="http://openshift.us3.list-manage.com/subscribe?u=979c70339150d05eec1531104&amp;id=c528e5e48e">Updates by Email</a></li><li><a href="https://www.youtube.com/rhopenshift">YouTube</a></li></ul></nav><nav class="span3"><header><h3>About</h3></header><ul class="unstyled"><li><a href="https://www.redhat.com/about/">About Red Hat</a></li><li><a href="http://jobs.redhat.com/job-search-results/?keywords=openshift">Careers</a></li><li><a href="../products/origin.html">Open Source</a></li><li><a href="../partners.html">Partner Program</a></li><li><a href="../legal/openshift_privacy.html">Privacy Policy</a></li><li><a href="../legal/services_agreement.html">Terms of Service</a></li><li><a href="../policy/security.html">Security Policy</a></li><li><a href="../products.html">What is OpenShift?</a></li></ul></nav></div>        </div>
+      </div>
+      <section id="copyright">
+        <div class="container">
+          <a href="https://www.redhat.com/">
+            <img src="https://assets.openshift.net/app/assets/redhat.svg" alt="Red Hat">
+          </a>
+          <div class="pull-right">Copyright &copy; 2014 Red Hat, Inc.</div>
+        </div>
+      </section>
+    </footer>
+        	<!-- Begin Eloqua Tracking -->
+    	<script type='text/javascript' src='../../www.redhat.com/j/elqNow/elqCfg.js'></script> 
+    	<script type='text/javascript' src='../../www.redhat.com/j/elqNow/elqImg.js'></script>
+    	<!-- End Eloqua Tracking -->
+    	<!-- Begin Google Analytics Tracking -->
+    	<script type="text/javascript" src="../../assets.openshift.net/app/assets/site/tracking.js"></script>
+    	<!-- End Google Analytics Tracking -->
+        <!-- SiteCatalyst code version: H.23.3.
+        Copyright 1996-2011 Adobe, Inc. All Rights Reserved
+        More info available at http://www.omniture.com -->
+        <div id="oTags">
+        <script type="text/javascript" src="../../assets.openshift.net/app/assets/site/s_code.js"></script>
+        <script language="JavaScript" type="text/javascript"><!--
+        /* You may give each page an identifying name, server, and channel on
+        the next lines. */
+        s.pageName="openshift | community | Developer Workflow | OpenShift by Red Hat"
+        s.server=""
+        s.channel=""
+        s.heir1=""
+        s.pageType=""
+        s.prop1=""
+        s.prop2=""
+        s.prop3=""
+        s.prop4=""
+        s.prop5=""
+        /* Conversion Variables */
+        s.campaign=""
+        s.state=""
+        s.zip=""
+        s.events=""
+        s.products=""
+        s.purchaseID=""
+        s.eVar1=""
+        s.eVar2=""
+        s.eVar3=""
+        s.eVar4=""
+        s.eVar5=""
+        s.eVar51=""
+        s.eVar27=""
+        s.eVar28=""
+        s.eVar29=""
+        /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+        var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+        <script language="JavaScript" type="text/javascript"><!--
+        if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+        //--></script><noscript><img src="http://redhat.122.2o7.net/b/ss/redhatopenshift/1/H.23.3--NS/0"
+        height="1" width="1" border="0" alt="" /></noscript><!--/DO NOT REMOVE/-->
+        <!-- End SiteCatalyst code version: H.23.3. -->
+        </div>
+    	
+    	<!-- Google Code for Remarketing tag -->
+    	<script type="text/javascript">
+    	/* <![CDATA[ */
+    	var google_conversion_id = 1007064360;
+    	var google_conversion_label = "amNWCJipqAQQqKqa4AM";
+    	var google_custom_params = window.google_tag_params;
+    	var google_remarketing_only = true;
+    	/* ]]> */
+    	</script>
+    	<script type="text/javascript" src="../../www.googleadservices.com/pagead/f.txt">
+    	</script>
+    	<noscript>
+    	<div style="display:inline;">
+    	<img height="1" width="1" style="border-style:none;" alt="" src="http://googleads.g.doubleclick.net/pagead/viewthroughconversion/1007064360/?value=0&amp;label=amNWCJipqAQQqKqa4AM&amp;guid=ON&amp;script=0"/>
+    	</div>
+    	</noscript>
+    	<div style="display:none;">     <script src="../../openshift.redhat.com/app/status/status2f3b.js?id=outage" type="text/javascript"></script>
+    </div>
+  </body>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+if (Drupal.jsEnabled) {
+      $(document).ready(function() {
+        $('a.external').each(function() {
+          $(this).append('&nbsp;<img src="/sites/all/modules/mediawiki_filter/external.png" alt="external"/>');
+        });
+      });
+    }
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"CToolsAJAX":{"scripts":{"\/misc\/jquery.js":true,"\/misc\/drupal.js":true,"\/misc\/jquery.form.js":true,"\/sites\/all\/modules\/ajax_poll\/ajax_poll.js":true,"\/sites\/all\/modules\/ctools\/js\/ajax-responder.js":true,"\/sites\/all\/modules\/ctools\/js\/modal.js":true,"\/sites\/all\/modules\/fivestar\/js\/fivestar.js":true,"\/sites\/all\/modules\/mediawiki_filter\/mediawiki_filter.js":true,"\/sites\/all\/modules\/og\/og.js":true},"css":{"\/modules\/book\/book.css":true,"\/modules\/calendar\/calendar_multiday\/calendar_multiday.css":true,"\/modules\/cck\/theme\/content-module.css":true,"\/modules\/date\/date.css":true,"\/modules\/date\/date_popup\/themes\/datepicker.css":true,"\/modules\/date\/date_popup\/themes\/jquery.timeentry.css":true,"\/modules\/node\/node.css":true,"\/modules\/poll\/poll.css":true,"\/modules\/system\/defaults.css":true,"\/modules\/system\/system.css":true,"\/modules\/system\/system-menus.css":true,"\/modules\/user\/user.css":true,"\/sites\/all\/modules\/ctools\/css\/ctools.css":true,"\/sites\/all\/modules\/ctools\/css\/modal.css":true,"\/sites\/all\/modules\/filefield\/filefield.css":true,"\/sites\/all\/modules\/fivestar\/css\/fivestar.css":true,"\/sites\/all\/modules\/geshifilter\/geshifilter.css":true,"\/sites\/all\/modules\/mediawiki_filter\/mediawiki_filter.css":true,"\/sites\/all\/modules\/og\/theme\/og.css":true,"\/modules\/cck\/modules\/fieldgroup\/fieldgroup.css":true,"\/modules\/views\/css\/views.css":true}}});
+//--><!]]>
+</script>
+</script>
+
+<!-- Mirrored from www.openshift.com/walkthrough/developer-workflow by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 14 Jun 2015 14:21:59 GMT -->
+</html>

@@ -1,0 +1,5 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+www.openshift.com	TRUE	/	FALSE	1999999999	SESScf9d507afc09926972f4ab1f37b4843f	3jkmu8anrll2vqs1lr6r6qp7b5
+www.openshift.com	TRUE	/	FALSE	1999999999	_rhc_session	BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJTgxOGZiMDFjOGNkZjRjMDVhOTQyOWNjNzQxNmZiZDhlBjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMU1uL3RiK1o0T0V2NGt6UnpQSWZCWFJwK1RjVWNOUEFLWDBwaEtna1FaK1E9BjsARg%3D%3D--84b095ed542d0226a6ae2912af22609d676609f6
+
